@@ -8,7 +8,7 @@ function PokemonList2({pokemons, isLoading}) {
         {isLoading ? (
             <h1> Loading </h1>
         ) : (
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-4 gap-4 p-5">
                 {pokemons.length > 0 ? (
                    pokemons.map((pokemonStats) => (
                     <PokemonCard 

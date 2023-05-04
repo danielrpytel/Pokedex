@@ -2,13 +2,13 @@ import PokemonCard from '../components/PokemonCard';
 
 function PokemonList2({pokemons, isLoading}) {
 
-    console.log(pokemons);
     return(
         <>
+        <div className="flex justify-center">   
         {isLoading ? (
             <h1> Loading </h1>
         ) : (
-            <div className="grid grid-cols-4 gap-4 p-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 m-5">
                 {pokemons.length > 0 ? (
                    pokemons.map((pokemonStats) => (
                     <PokemonCard 
@@ -28,6 +28,7 @@ function PokemonList2({pokemons, isLoading}) {
               }
             </div>
         )}      
+        </div>
         </>       
     )  
 }

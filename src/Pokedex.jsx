@@ -11,7 +11,7 @@ function Pokedex() {
   const createPokemonObject = async() => {
       setLoading(true);
       
-      await axios.get('https://pokeapi.co/api/v2/pokemon?limit=120&offset=0')
+      await axios.get('https://pokeapi.co/api/v2/pokemon?limit=200&offset=0')
       .then((data) => {
           const request = data.data.results.map(results => {
             const pokemonstat = axios.get(results.url)
@@ -26,10 +26,11 @@ function Pokedex() {
   };
 
   useEffect(() => {
-    console.log("running");
     createPokemonObject();
   }, []);
 
+  console.log(allPokemons);
+  
   return (
     <div className="w-screen h-screen bg-slate-500">
       <Header />

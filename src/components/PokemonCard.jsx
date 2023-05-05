@@ -5,11 +5,7 @@ function PokemonCard({
     id, 
     name, 
     image, 
-    type, 
-    weight, 
     height, 
-    stats, 
-    statsName
 }) {
 
     const [pokemonColor, setPokemonColor] = useState();

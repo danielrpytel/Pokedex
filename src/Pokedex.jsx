@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from 'axios';
 
 import Header from "./components/Header";
 import PokemonList from "./hooks/PokemonList2";
+import Details from "./hooks/Details";
 
 function Pokedex() {
   const [allPokemons, setAllPokemons] = useState([]);
@@ -30,16 +32,22 @@ function Pokedex() {
   }, []);
 
   console.log(allPokemons);
-  
+
   return (
     <div className="w-screen h-screen bg-slate-500">
       <Header />
       <div className="flex item-center justify-center">
         <div className="page-width bg-slate-600">
-        <PokemonList 
-          pokemons = {allPokemons} 
-          isLoading = {loading}
-        />
+          <BrowserRouter>
+          <Routes>
+            <Route index element={<PokemonList 
+              pokemons = {allPokemons} 
+              isLoading = {loading}
+              />}>
+            </Route>
+            <Route exact path="/details/:name" element={<Details />}/>
+          </Routes>
+          </BrowserRouter> 
         </div>
       </div>  
     </div>

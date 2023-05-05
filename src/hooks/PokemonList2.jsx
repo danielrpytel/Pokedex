@@ -16,10 +16,7 @@ function PokemonList2({pokemons, isLoading}) {
                     id = {pokemonStats.id.toString().padStart(3, "0")}
                     image = {pokemonStats.sprites.other['official-artwork'].front_default}
                     name = {pokemonStats.name.replace(/^./, (str) => str.toUpperCase())}
-                    type = {pokemonStats.types[0].type.name}
-                    weight = {pokemonStats.weight}
                     height = {pokemonStats.height}
-                    stats = {pokemonStats.stats.map((stat) => stat.base_stat).slice(0,3)}
                     />     
                 ))   
                 ) : (

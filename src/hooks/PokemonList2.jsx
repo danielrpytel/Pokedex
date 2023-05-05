@@ -16,6 +16,7 @@ function PokemonList2({pokemons, isLoading}) {
                     id = {pokemonStats.id.toString().padStart(3, "0")}
                     image = {pokemonStats.sprites.other['official-artwork'].front_default}
                     name = {pokemonStats.name.replace(/^./, (str) => str.toUpperCase())}
+                    nameUrl = {pokemonStats.name}
                     height = {pokemonStats.height}
                     />     
                 ))   

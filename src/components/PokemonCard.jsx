@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import { getColorFromUrl } from "../utils/colors";
 
+import {Link} from "react-router-dom";
+
 function PokemonCard({
     id, 
     name, 
     image, 
-    height, 
+    height,
+    nameUrl 
 }) {
-
     const [pokemonColor, setPokemonColor] = useState();
+    
     let getPokemonSizeImg = (height) => {
         let size = "";
         
@@ -24,8 +27,6 @@ function PokemonCard({
         }
     }
 
-    const pokemonImgSize = getPokemonSizeImg(height);
-
     useEffect(() => {
         const getPokemonColor = async () => {
             const color = await getColorFromUrl(image)
@@ -34,22 +35,27 @@ function PokemonCard({
         getPokemonColor();
     }, []);
 
+    const pokemonImgSize = getPokemonSizeImg(height);
+
     return(
-        <div className="rounded overflow-hidden shadow-lg bg-slate-300 max-w-xs">
-            <div className="flex flex-col">
-                <div className="flex w-full h-80" style={{backgroundColor : pokemonColor}}>
-                    <img className="m-auto" style={{width : pokemonImgSize, height : pokemonImgSize}} src={image} alt={name}/>
+        <Link to={`/details/${nameUrl}`}>
+            <div className="rounded overflow-hidden shadow-lg bg-slate-300 max-w-xs">
+                <div className="flex flex-col">
+                    <div className="flex w-full h-80" style={{backgroundColor : pokemonColor}}>
+                        <img className="m-auto" style={{width : pokemonImgSize, height : pokemonImgSize}} src={image} alt={name}/>
+                    </div>
+                    <div className="px-4 pt-2">
+                        <p className="text-lg">
+                        #{id} 
+                        </p>
+                    </div>
+                    <div className="px-4 py-2">
+                        <p className="font-bold text-2xl">{name}</p> 
+                    </div>              
                 </div>
-                <div className="px-4 pt-2">
-                    <p className="text-lg">
-                    #{id} 
-                    </p>
-                </div>
-                <div className="px-4 py-2">
-                    <p className="font-bold text-2xl">{name}</p> 
-                </div>              
             </div>
-        </div>
+        </Link>
+        
     )
 }
 

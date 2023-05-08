@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-import PokemonCard from "../components/PokemonCard";
+import HeaderName from '../components/details/HeaderName';
 
 function Details() {
     const urlParams = useParams();
@@ -25,23 +25,26 @@ function Details() {
     }, []) 
 
     return (
-        <div className="flex flex-col">
+        <>
             { loading ? (
                 <h1>Loading...</h1>
-            ) : (
-                
-              <div className="flex flex-row">
-                <div>
-                    <h1>Name: {pokemonData.name}</h1>
-                </div>
-                <div className="w-1/2">
-                </div>
-                <div className="w-1/2">
-
-                </div>
-            </div>   
-            )}       
-        </div>
+                ) : (
+                <div className="flex flex-col">
+                    <HeaderName 
+                    name= {pokemonData.name.replace(/^./, (str) => str.toUpperCase())} 
+                    id = {pokemonData.id.toString().padStart(4, "0")}
+                    />
+                        
+                    <div className="flex flex-row">
+                        <div className="w-1/2">
+                        </div>
+                        <div className="w-1/2">
+                        </div>
+                    </div> 
+                </div>  
+            )}         
+        </>
+        
     )
 }
 

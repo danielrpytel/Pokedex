@@ -13,7 +13,7 @@ function PokemonList2({pokemons, isLoading}) {
                    pokemons.map((pokemonStats) => (
                     <PokemonCard 
                     key = {pokemonStats.id}
-                    id = {pokemonStats.id.toString().padStart(3, "0")}
+                    id = {pokemonStats.id.toString().padStart(4, "0")}
                     image = {pokemonStats.sprites.other['official-artwork'].front_default}
                     name = {pokemonStats.name.replace(/^./, (str) => str.toUpperCase())}
                     nameUrl = {pokemonStats.name}

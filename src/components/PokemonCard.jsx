@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getColorFromUrl } from "../utils/colors";
+import { getImgSize } from "../utils/imgSize";
 
 import {Link} from "react-router-dom";
 
@@ -11,31 +12,22 @@ function PokemonCard({
     nameUrl 
 }) {
     const [pokemonColor, setPokemonColor] = useState();
-    
-    let getPokemonSizeImg = (height) => {
-        let size = "";
-        
-        if (height >= 16) {
-            size = "100%";
-            return size;
-        } else if (height >= 11) {
-            size = "85%";
-            return size;
-        } else {
-            size = "65%";
-            return size;
-        }
-    }
+    const [pokemonImgSize, setImgSize] = useState();
 
     useEffect(() => {
         const getPokemonColor = async () => {
             const color = await getColorFromUrl(image)
             if (color) setPokemonColor(color);
         };
+
+        const getPokemonImgSize = () => {
+            const imgSize = getImgSize(height);
+            setImgSize(imgSize);
+        }
+        
+        getPokemonImgSize();
         getPokemonColor();
     }, []);
-
-    const pokemonImgSize = getPokemonSizeImg(height);
 
     return(
         <Link to={`/details/${nameUrl}`}>

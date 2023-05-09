@@ -6,24 +6,77 @@ import HeaderName from '../components/details/HeaderName';
 import PokemonImg from '../components/details/PokemonImg';
 
 function Details() {
-    const urlParams = useParams();
+    const { name } = useParams();
 
     const [pokemonData, setPokemonData] = useState([]);
     const [loading, setLoading] = useState(true);
 
-
     useEffect(() => {
-    async function loadPokemon() {
+        async function loadPokemon() {
+            await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+            .then((pokemon) => {
+                loadSpecies(pokemon.data);
+            })    
+        }
 
-        await axios.get(`https://pokeapi.co/api/v2/pokemon/${urlParams.name}`)
-        .then((pokemon) => {
-            setPokemonData(pokemon.data);
-        })    
+        async function loadSpecies(pokemon) {
+            
+            try {
+                let pokeSpecies = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${name}`);
+                let pokeEvolution = await axios.get(pokeSpecies.data.evolution_chain.url);
+    
+                var flavor_text_sword = "";
+                var flavor_text_shield = "";
+                var flavor_text_default = "";
+    
+                pokeSpecies.data.flavor_text_entries.forEach((item) => {
+                    if (item.language.name !== "en") return false;
+                    if (item.version.name === "sword") {
+                      flavor_text_sword = item.flavor_text;
+                    } else if (item.version.name === "shield") {
+                      flavor_text_shield = item.flavor_text;
+                    }
+                    flavor_text_default = item.flavor_text;
+                  });
+    
+                var abilities = "";
+    
+                pokemon.abilities.forEach((item, index) => {
+                    abilities += `${item.ability.name}${
+                        pokemon.abilities.length === index + 1 ? "" : ", "
+                    }`;
+                });
+    
+                var pokemonObj = {
+                    id: pokemon.id,
+                    name: pokemon.name,
+                    image: pokemon.sprites.other['official-artwork'].front_default,
+                    types: pokemon.types,
+                    flavor_text_sword,
+                    flavor_text_shield,
+                    flavor_text_default,
+                    height: pokemon.height,
+                    weight: pokemon.weight,
+                    abilities,
+                    gender_rate: pokeSpecies.data.gender_rate,
+                    capture_rate: pokeSpecies.data.capture_rate,
+                    habitat: pokeSpecies.data.habitat?.name,
+                    stats: pokemon.stats,
+                    evolution: pokeEvolution.data.chain,
+                  };
+    
+                setPokemonData(pokemonObj)
+                setLoading(false);
+            } catch (error) {
+                console.log(error);
+            }   
+        }
 
-        setLoading(false);
-    }
-    loadPokemon();
+        loadPokemon();
     }, []) 
+    
+    console.log("pokemon Data");
+    console.log(pokemonData);
 
     return (
         <>
@@ -41,7 +94,7 @@ function Details() {
                             <PokemonImg 
                             name = {pokemonData.name}
                             height = {pokemonData.height}
-                            image = {pokemonData.sprites.other['official-artwork'].front_default}
+                            image = {pokemonData.image}
                             />
                         </div>
                         <div className="w-1/2">

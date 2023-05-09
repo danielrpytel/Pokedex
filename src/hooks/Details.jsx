@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import HeaderName from '../components/details/HeaderName';
+import PokemonImg from '../components/details/PokemonImg';
 
 function Details() {
     const urlParams = useParams();
@@ -37,6 +38,11 @@ function Details() {
                         
                     <div className="flex flex-row">
                         <div className="w-1/2">
+                            <PokemonImg 
+                            name = {pokemonData.name}
+                            height = {pokemonData.height}
+                            image = {pokemonData.sprites.other['official-artwork'].front_default}
+                            />
                         </div>
                         <div className="w-1/2">
                         </div>

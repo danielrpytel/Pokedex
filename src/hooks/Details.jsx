@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import HeaderName from '../components/details/HeaderName';
 import PokemonImg from '../components/details/PokemonImg';
+import PokemonOverview from '../components/details/PokemonOverview';
 
 function Details() {
     const { name } = useParams();
@@ -27,7 +28,6 @@ function Details() {
     
                 var flavor_text_sword = "";
                 var flavor_text_shield = "";
-                var flavor_text_default = "";
     
                 pokeSpecies.data.flavor_text_entries.forEach((item) => {
                     if (item.language.name !== "en") return false;
@@ -36,7 +36,6 @@ function Details() {
                     } else if (item.version.name === "shield") {
                       flavor_text_shield = item.flavor_text;
                     }
-                    flavor_text_default = item.flavor_text;
                   });
     
                 var abilities = "";
@@ -54,7 +53,6 @@ function Details() {
                     types: pokemon.types,
                     flavor_text_sword,
                     flavor_text_shield,
-                    flavor_text_default,
                     height: pokemon.height,
                     weight: pokemon.weight,
                     abilities,
@@ -98,6 +96,11 @@ function Details() {
                             />
                         </div>
                         <div className="w-1/2">
+                            <PokemonOverview 
+                             flavor_text_sword={pokemonData.flavor_text_sword}
+                             flavor_text_shield={pokemonData.flavor_text_shield}
+                             nameAlt={pokemonData.name}
+                            />
                         </div>
                     </div> 
                 </div>  

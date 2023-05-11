@@ -35,10 +35,10 @@ function Pokedex() {
 
   return (
     <div className="w-screen h-screen bg-slate-500">
+      <BrowserRouter>
       <Header />
-      <div className="flex item-center justify-center">
-        <div className="page-width bg-slate-600">
-          <BrowserRouter>
+      <div className="flex item-center justify-center">      
+        <div className="page-width bg-slate-600">  
           <Routes>
             <Route index element={<PokemonList 
               pokemons = {allPokemons} 
@@ -46,10 +46,10 @@ function Pokedex() {
               />}>
             </Route>
             <Route exact path="/details/:name" element={<Details />}/>
-          </Routes>
-          </BrowserRouter> 
+          </Routes>         
         </div>
-      </div>  
+      </div> 
+       </BrowserRouter>
     </div>
   );
 }

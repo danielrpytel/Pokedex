@@ -5,6 +5,7 @@ import axios from 'axios';
 import HeaderName from '../components/details/HeaderName';
 import PokemonImg from '../components/details/PokemonImg';
 import PokemonOverview from '../components/details/PokemonOverview';
+import PokemonInfo from '../components/details/PokemonInfo';
 
 function Details() {
     const { name } = useParams();
@@ -43,7 +44,8 @@ function Details() {
                 var abilities = "";
     
                 pokemon.abilities.forEach((item, index) => {
-                    abilities += `${item.ability.name}${
+                    let ability = item.ability.name.replace(/^./, (str) => str.toUpperCase());
+                    abilities += `${ability}${
                         pokemon.abilities.length === index + 1 ? "" : ", "
                     }`;
                 });
@@ -59,9 +61,8 @@ function Details() {
                     height: pokemon.height,
                     weight: pokemon.weight,
                     abilities,
-                    gender_rate: pokeSpecies.data.gender_rate,
                     capture_rate: pokeSpecies.data.capture_rate,
-                    habitat: pokeSpecies.data.habitat?.name,
+                    habitat: pokeSpecies.data.habitat?.name.replace(/^./, (str) => str.toUpperCase()),
                     stats: pokemon.stats,
                     evolution: pokeEvolution.data.chain,
                   };
@@ -76,8 +77,7 @@ function Details() {
         loadPokemon();
     }, []) 
     
-    console.log("pokemon Data");
-    console.log(pokemonData);
+    
 
     return (
         <>
@@ -89,7 +89,6 @@ function Details() {
                     name= {pokemonData.name.replace(/^./, (str) => str.toUpperCase())} 
                     id = {pokemonData.id.toString().padStart(4, "0")}
                     />
-                        
                     <div className="flex flex-row">
                         <div className="w-1/2">
                             <PokemonImg 
@@ -99,14 +98,26 @@ function Details() {
                             />
                         </div>
                         <div className="w-1/2">
-                            <PokemonOverview 
-                             flavor_text_sword={pokemonData.flavor_text_sword}
-                             flavor_text_shield={pokemonData.flavor_text_shield}
-                             flavor_text_default={pokemonData.flavor_text_default}
-                             nameAlt={pokemonData.name}
-                            />
-                        </div>
-                    </div> 
+                            <div className="w-full mb-8">
+                                <PokemonOverview 
+                                flavor_text_sword = {pokemonData.flavor_text_sword}
+                                flavor_text_shield = {pokemonData.flavor_text_shield}
+                                flavor_text_default = {pokemonData.flavor_text_default}
+                                nameAlt = {pokemonData.name}
+                                />
+                            </div> 
+                            <div className="w-full">
+                                <PokemonInfo 
+                                    height = {pokemonData.height}
+                                    weight = {pokemonData.weight}
+                                    habitat = {pokemonData.habitat}
+                                    abilities = {pokemonData.abilities}
+                                    capture_rate = {pokemonData.capture_rate}
+                                />
+                            </div> 
+                        </div>  
+                         
+                    </div>                         
                 </div>  
             )}         
         </>

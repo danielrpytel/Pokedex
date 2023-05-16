@@ -6,6 +6,7 @@ import HeaderName from '../components/details/HeaderName';
 import PokemonImg from '../components/details/PokemonImg';
 import PokemonOverview from '../components/details/PokemonOverview';
 import PokemonInfo from '../components/details/PokemonInfo';
+import PokemonStats from '../components/details/PokemonStats';
 
 function Details() {
     const { name } = useParams();
@@ -77,7 +78,8 @@ function Details() {
         loadPokemon();
     }, []) 
     
-    
+    console.log("Stats")
+    console.log(pokemonData.stats);
 
     return (
         <>
@@ -108,16 +110,20 @@ function Details() {
                             </div> 
                             <div className="w-full">
                                 <PokemonInfo 
-                                    height = {pokemonData.height}
-                                    weight = {pokemonData.weight}
-                                    habitat = {pokemonData.habitat}
-                                    abilities = {pokemonData.abilities}
-                                    capture_rate = {pokemonData.capture_rate}
+                                height = {pokemonData.height}
+                                weight = {pokemonData.weight}
+                                habitat = {pokemonData.habitat}
+                                abilities = {pokemonData.abilities}
+                                capture_rate = {pokemonData.capture_rate}
                                 />
                             </div> 
-                        </div>  
-                         
-                    </div>                         
+                        </div>       
+                    </div>
+                    <div className="mx-14 my-5">
+                       <PokemonStats
+                        stats = {pokemonData.stats} 
+                        />
+                    </div>   
                 </div>  
             )}         
         </>

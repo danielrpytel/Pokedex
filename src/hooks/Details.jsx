@@ -7,6 +7,7 @@ import PokemonImg from '../components/details/PokemonImg';
 import PokemonOverview from '../components/details/PokemonOverview';
 import PokemonInfo from '../components/details/PokemonInfo';
 import PokemonStats from '../components/details/PokemonStats';
+import PokemonEvolution from '../components/details/PokemonEvolution';
 
 function Details() {
     const { name } = useParams();
@@ -78,8 +79,6 @@ function Details() {
         loadPokemon();
     }, []) 
     
-    console.log("Stats")
-    console.log(pokemonData.stats);
 
     return (
         <>
@@ -123,6 +122,11 @@ function Details() {
                        <PokemonStats
                         stats = {pokemonData.stats} 
                         />
+                    </div>
+                    <div className="mx-14 my-5">
+                        <PokemonEvolution 
+                        evolution = {pokemonData.evolution}
+                        />    
                     </div>   
                 </div>  
             )}         

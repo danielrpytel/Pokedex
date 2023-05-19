@@ -77,7 +77,7 @@ function Details() {
         }
 
         loadPokemon();
-    }, []) 
+    }, [name]) 
     
 
     return (
@@ -104,7 +104,7 @@ function Details() {
                                 flavor_text_sword = {pokemonData.flavor_text_sword}
                                 flavor_text_shield = {pokemonData.flavor_text_shield}
                                 flavor_text_default = {pokemonData.flavor_text_default}
-                                nameAlt = {pokemonData.name}
+                                name = {pokemonData.name}
                                 />
                             </div> 
                             <div className="w-full">
@@ -120,12 +120,14 @@ function Details() {
                     </div>
                     <div className="mx-14 my-5">
                        <PokemonStats
-                        stats = {pokemonData.stats} 
+                        stats = {pokemonData.stats}
+                        type = {pokemonData.types[0]} 
                         />
                     </div>
                     <div className="mx-14 my-5">
                         <PokemonEvolution 
                         evolution = {pokemonData.evolution}
+                        type = {pokemonData.types[0]}
                         />    
                     </div>   
                 </div>  

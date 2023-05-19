@@ -8,7 +8,7 @@ function PokemonOverview({
     flavor_text_sword,
     flavor_text_shield,
     flavor_text_default,
-    nameAlt
+    name
 }) {
 
     const [version, setVersion] = useState("sword");
@@ -24,7 +24,7 @@ function PokemonOverview({
             text = flavor_text_shield;
         }
         setOvierview(text);
-    }, [version])
+    }, [version, name])
 
     return (
         <div className="flex flex-col w-full">
@@ -42,13 +42,13 @@ function PokemonOverview({
                         <button className="w-10 h-10"
                         onClick={() => setVersion("sword")}
                         >
-                            <img src={BluePokeball} alt={nameAlt} />
+                            <img src={BluePokeball} alt="Overview Sword" />
                         </button>
                     </div>
                     <div>
                         <button className="w-10 h-10"
                         onClick={() => setVersion("shield")}>
-                            <img src={RedPokeball} alt={nameAlt} />
+                            <img src={RedPokeball} alt="Overview Shield" />
                         </button>
                     </div>
                 </div>

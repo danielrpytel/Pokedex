@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import { RiArrowRightSLine } from 'react-icons/ri'
+
 
 function PokemonEvolution({
     evolution,
@@ -45,26 +47,41 @@ function PokemonEvolution({
                     Evolutions
                 </h2> 
             </div>
-            <div className="flex flex-row justify-around">
+            {evolutionChain.length === 1 && (
+                <div>
+                    <h2 className="text-slate-300 text-lg">
+                        This Pokemon does not evolve
+                    </h2>
+                </div>
+            )}
+            <div className="flex flex-row justify-center">
                 {evolutionChain.map((pokemon, indx, arr) => {
                     return (
-                        <Link key={pokemon.name} to={`/details/${pokemon.name}`}>
+                        <div key={pokemon.name} className="flex flex-row justify-center items-center">
                             <div className="flex flex-col overflow-hidden rounded-lg shadow-lg">
-                                <div className={`${type.type.name}`}>
-                                    <img className="h-52" src={pokemon.pictureUrl} alt={pokemon.name} />
-                                </div>
-                                <div className="bg-white">
-                                    <div className="px-4 pt-2">
-                                        <p className="text-lg">
-                                            #{pokemon.id.toString().padStart(4, "0")} 
-                                        </p>
+                                <Link  to={`/details/${pokemon.name}`}>                    
+                                    <div className={`${type.type.name}`}>
+                                        <img className="h-52" src={pokemon.pictureUrl} alt={pokemon.name} />
                                     </div>
-                                    <div className="px-4 py-2">
-                                        <p className="font-bold text-2xl">{pokemon.name.replace(/^./, (str) => str.toUpperCase())}</p> 
-                                    </div>   
-                                </div>      
-                            </div>   
-                        </Link>                     
+                                    <div className="bg-white">
+                                        <div className="px-4 pt-2">
+                                            <p className="text-lg">
+                                                #{pokemon.id.toString().padStart(4, "0")} 
+                                            </p>
+                                        </div>
+                                        <div className="px-4 py-2">
+                                            <p className="font-bold text-2xl">{pokemon.name.replace(/^./, (str) => str.toUpperCase())}</p> 
+                                        </div>   
+                                    </div>          
+                                </Link> 
+                            </div> 
+                            {indx !== arr.length - 1 && (
+                                <div className="flex mx-auto">
+                                    <RiArrowRightSLine className="text-8xl text-white"/>
+                                </div>  
+                            )      
+                        }                         
+                        </div>                     
                     )
                 })}
             </div>

@@ -40,12 +40,12 @@ function Pokedex() {
       <div className="flex item-center justify-center">      
         <div className="page-width bg-slate-600">  
           <Routes>
-            <Route index element={<PokemonList 
+            <Route exact path="" element={<PokemonList 
               pokemons = {allPokemons} 
               isLoading = {loading}
               />}>
             </Route>
-            <Route exact path="/details/:name" element={<Details />}/>
+            <Route path="/details/:name" element={<Details />}/>
           </Routes>         
         </div>
       </div> 

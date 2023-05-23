@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import axios from 'axios';
 
 import Header from "./components/Header";
@@ -35,7 +35,7 @@ function Pokedex() {
 
   return (
     <div className="w-screen h-screen bg-slate-500">
-      <BrowserRouter>
+      <HashRouter>
       <Header />
       <div className="flex item-center justify-center">      
         <div className="page-width bg-slate-600">  
@@ -49,7 +49,7 @@ function Pokedex() {
           </Routes>         
         </div>
       </div> 
-       </BrowserRouter>
+       </HashRouter>
     </div>
   );
 }

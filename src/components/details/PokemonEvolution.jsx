@@ -54,10 +54,10 @@ function PokemonEvolution({
                     </h2>
                 </div>
             )}
-            <div className="flex flex-row justify-center">
+            <div className="flex flex-col md:flex-row justify-center">
                 {evolutionChain.map((pokemon, indx, arr) => {
                     return (
-                        <div key={pokemon.name} className="flex flex-row justify-center items-center">
+                        <div key={pokemon.name} className="flex flex-col md:flex-row justify-center items-center">
                             <div className="flex flex-col overflow-hidden rounded-lg shadow-lg">
                                 <Link  to={`/details/${pokemon.name}`}>                    
                                     <div className={`${type.type.name}`}>
@@ -77,7 +77,7 @@ function PokemonEvolution({
                             </div> 
                             {indx !== arr.length - 1 && (
                                 <div className="flex mx-auto">
-                                    <RiArrowRightSLine className="text-8xl text-white"/>
+                                    <RiArrowRightSLine className="rotate-90 md:rotate-0 text-8xl text-white"/>
                                 </div>  
                             )      
                         }                         

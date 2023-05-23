@@ -90,15 +90,15 @@ function Details() {
                     name= {pokemonData.name.replace(/^./, (str) => str.toUpperCase())} 
                     id = {pokemonData.id.toString().padStart(4, "0")}
                     />
-                    <div className="flex flex-row">
-                        <div className="w-1/2">
+                    <div className="flex flex-col md:flex-row">
+                        <div className="md:w-1/2">
                             <PokemonImg 
                             name = {pokemonData.name}
                             height = {pokemonData.height}
                             image = {pokemonData.image}
                             />
                         </div>
-                        <div className="w-1/2">
+                        <div className="md:w-1/2">
                             <div className="w-full mb-8">
                                 <PokemonOverview 
                                 flavor_text_sword = {pokemonData.flavor_text_sword}
@@ -118,13 +118,13 @@ function Details() {
                             </div> 
                         </div>       
                     </div>
-                    <div className="mx-14 my-5">
+                    <div className="mx-2 md:mx-14 my-5">
                        <PokemonStats
                         stats = {pokemonData.stats}
                         type = {pokemonData.types[0]} 
                         />
                     </div>
-                    <div className="mx-14 my-5">
+                    <div className="mx-2 md:mx-14 my-5">
                         <PokemonEvolution 
                         evolution = {pokemonData.evolution}
                         type = {pokemonData.types[0]}

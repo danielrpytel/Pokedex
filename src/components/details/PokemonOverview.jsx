@@ -28,17 +28,17 @@ function PokemonOverview({
 
     return (
         <div className="flex flex-col w-full">
-            <div className="mx-14 mb-5">
+            <div className="mx-3 mb-5 mt-5 md:mt-0 md:mx-14">
                 <div className="mr-auto">
                     <h3 className="text-xl text-slate-300">
                         {overview}
                     </h3>
                 </div>
             </div>
-                <div className="flex flex-row mx-14" 
+                <div className="flex flex-row mx-auto md:mx-14" 
                 style={ flavor_text_shield === "" && flavor_text_sword === "" ? ({display: 'none'}) : ({display: 'flex'})}
                 >
-                    <div className="mr-5">
+                    <div className="mr-6">
                         <button className="w-10 h-10"
                         onClick={() => setVersion("sword")}
                         >

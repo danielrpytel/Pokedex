@@ -14,7 +14,7 @@ console.log(abilities);
 
  
     return(
-        <div className="mx-14 rounded-lg shadow-lg bg-slate-800">
+        <div className="mx-2 md:mx-14 rounded-lg shadow-lg bg-slate-800">
             <div className="flex flex-col">
                 <div className="flex flex-row m-3 text-slate-300 text-lg">
                     <div className="w-1/2">

@@ -28,7 +28,7 @@ function PokemonImg ({
     }, []);
 
     return (
-        <div className="flex w-96 h-96 ml-auto rounded-lg shadow-lg" style={{backgroundColor : pokemonColor}}>
+        <div className="flex w-96 h-96 mx-auto md:mx-0 md:ml-auto rounded-lg shadow-lg" style={{backgroundColor : pokemonColor}}>
             <img className="m-auto" style={{width : pokemonImgSize, height : pokemonImgSize}} src={image} alt={name}/>
         </div>
     )

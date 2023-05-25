@@ -3,83 +3,83 @@
 @tailwind utilities;
 
 body {
-    background-color: rgb(100 116 139);
+	background-color: rgb(100 116 139);
 }
 .page-width {
-    width: 1240px;
+	width: 1240px;
 }
 
 /* Pokemon Types Color */
 
 .bug {
-    background-color: #07ad20;
-    color: white;
+	background-color: #07ad20;
+	color: white;
 }
 .dragon {
-    background-color: #cf0452;
-    color: white;
+	background-color: #cf0452;
+	color: white;
 }
 .fairy {
-    background-color: #e06c99;
-    color: black;
+	background-color: #e06c99;
+	color: black;
 }
 .fire {
-    background-color: #f70202;
-    color: white;
+	background-color: #f70202;
+	color: white;
 }
 .ghost {
-    background-color: #4b0096;
-    color: white;
+	background-color: #4b0096;
+	color: white;
 }
 .ground {
-    background-color: #594d01;
-    color: white;
+	background-color: #594d01;
+	color: white;
 }
 .normal {
-    background-color: #545454;
-    color: white;
+	background-color: #545454;
+	color: white;
 }
 .psychic {
-    background-color: #91029c;
-    color: white;
+	background-color: #91029c;
+	color: white;
 }
 .steel {
-    background-color: #808080;
-    color: black;
+	background-color: #808080;
+	color: black;
 }
 .dark {
-    background-color: #474747;
-    color: white;
+	background-color: #474747;
+	color: white;
 }
 .electric {
-    background-color: #eaff00;
-    color: black;
+	background-color: #eaff00;
+	color: black;
 }
 .fighting {
-    background-color: #bf1919;
-    color: white;
+	background-color: #bf1919;
+	color: white;
 }
 .flying {
-    background-color: #02439e;
-    color: white;
+	background-color: #02439e;
+	color: white;
 }
 .grass {
-    background-color: #007a12;
-    color: white;
+	background-color: #007a12;
+	color: white;
 }
 .ice {
-    background-color: #009191;
-    color: black;
+	background-color: #009191;
+	color: black;
 }
 .poison {
-    background-color: #520091;
-    color: white;
+	background-color: #520091;
+	color: white;
 }
 .rock {
-    background-color: #3d3501;
-    color: white;
+	background-color: #3d3501;
+	color: white;
 }
 .water {
-    background-color: #0261f0;
-    color: white;
+	background-color: #0261f0;
+	color: white;
 }

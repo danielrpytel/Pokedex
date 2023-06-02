@@ -1,8 +1,8 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
-import PokemonList from "./pages/PokemonList";
 import Details from "./pages/Details";
+import Home from "./pages/Home";
 
 function Pokedex() {
 	return (
@@ -12,7 +12,7 @@ function Pokedex() {
 				<div className="flex item-center justify-center">
 					<div className="page-width bg-slate-600">
 						<Routes>
-							<Route exact path="" element={<PokemonList />} />
+							<Route exact path="" element={<Home />} />
 							<Route path="/details/:name" element={<Details />} />
 						</Routes>
 					</div>

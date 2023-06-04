@@ -33,7 +33,7 @@ function PokemonEvolution({ evolution, type }) {
 		const pokemonsArray = [];
 		buildEvolutionChainRec(evolution, pokemonsArray);
 		setEvolutionChain(pokemonsArray);
-	}, []);
+	}, [evolution]);
 
 	return (
 		<div className="w-full p-6 rounded-lg shadow-lg bg-slate-800">

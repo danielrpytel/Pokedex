@@ -22,7 +22,6 @@ export function validateSearch(searchInput) {
 			validateReturn["message"] = "Cannot hava any special character";
 			return validateReturn;
 		}
-
 		validateReturn["validate"] = true;
 		validateReturn["search"] = searchInput.toLowerCase();
 		return validateReturn;

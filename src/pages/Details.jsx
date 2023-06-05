@@ -14,13 +14,19 @@ function Details() {
 
 	const [pokemonData, setPokemonData] = useState([]);
 	const [loading, setLoading] = useState(true);
+	const [errorMsg, setErrorMsg] = useState("");
 
 	async function loadPokemon() {
-		await axios
-			.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-			.then((pokemon) => {
-				loadSpecies(pokemon.data);
-			});
+		setErrorMsg("");
+		try {
+			await axios
+				.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+				.then((pokemon) => {
+					loadSpecies(pokemon.data);
+				});
+		} catch (error) {
+			setErrorMsg("Could not find that Pokemon");
+		}
 	}
 
 	async function loadSpecies(pokemon) {
@@ -87,6 +93,11 @@ function Details() {
 
 	return (
 		<>
+			{errorMsg.length !== 0 && (
+				<div className="w-full text-center">
+					<p className="text-3xl text-red-500">{errorMsg}</p>
+				</div>
+			)}
 			{loading ? (
 				<h1>Loading...</h1>
 			) : (

@@ -1,4 +1,4 @@
-export const getImgSize = (height) => {
+export const getImgSize = (height: number) => {
 	let size = "100%";
 
 	if (height >= 16) {

@@ -1,5 +1,12 @@
-export function getStatPercHeight(statApi) {
-	const maxStats = {
+interface statApi {
+	base_stat: number;
+	stat: {
+		name: string;
+	};
+}
+
+export function getStatPercHeight(statApi: statApi) {
+	const maxStats: { [key: string]: number } = {
 		hp: 255,
 		attack: 190,
 		defense: 250,

@@ -1,4 +1,4 @@
-export function validateSearch(searchInput) {
+export function validateSearch(searchInput: string) {
 	const pokemonMax = 1008;
 
 	const validateReturn = {
@@ -7,11 +7,11 @@ export function validateSearch(searchInput) {
 		search: "",
 	};
 
-	function containsOnlyNumbers(str) {
+	function containsOnlyNumbers(str: string) {
 		return /^\d+$/.test(str);
 	}
 
-	function hasSpecialSymbol(str) {
+	function hasSpecialSymbol(str: string) {
 		const pattern = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
 		return pattern.test(str);
 	}

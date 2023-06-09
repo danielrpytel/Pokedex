@@ -8,10 +8,10 @@ import Search from "./components/Search";
 
 function Pokedex() {
 	return (
-		<div className="w-screen h-screen bg-slate-500">
+		<div className="h-screen w-screen bg-slate-500">
 			<HashRouter>
 				<Header />
-				<div className="flex item-center justify-center">
+				<div className="item-center flex justify-center">
 					<div className="page-width bg-slate-600">
 						<Search />
 						<Routes>

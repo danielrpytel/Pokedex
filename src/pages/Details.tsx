@@ -14,6 +14,7 @@ import PokemonEvolution, {
 	IEvolution,
 	IPokemonEvolutionProps,
 } from "../components/details/PokemonEvolution";
+import Loading from "../components/Loading";
 
 export interface IPokemonDetails {
 	id: string;
@@ -82,7 +83,7 @@ const Details = () => {
 				</div>
 			)}
 			{loading ? (
-				<h1>Loading...</h1>
+				<Loading />
 			) : (
 				<div className="flex flex-col">
 					<HeaderName {...headerProps} />

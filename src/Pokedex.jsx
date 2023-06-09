@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Details from "./pages/Details";
 import Home from "./pages/Home";
 import Search from "./components/Search";
+import Footer from "./components/Footer";
 
 function Pokedex() {
 	return (
@@ -20,6 +21,7 @@ function Pokedex() {
 						</Routes>
 					</div>
 				</div>
+				<Footer />
 			</HashRouter>
 		</div>
 	);

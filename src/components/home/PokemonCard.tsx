@@ -15,7 +15,7 @@ function PokemonCard(props: IPokemonCard) {
 
 	return (
 		<Link to={`/details/${name}`}>
-			<div className="max-w-xs overflow-hidden rounded bg-slate-300 shadow-lg">
+			<div className="mx-auto max-w-xs overflow-hidden rounded bg-slate-300 shadow-lg">
 				<div className="flex flex-col">
 					<div
 						className="flex h-80 w-full"

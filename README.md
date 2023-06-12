@@ -10,9 +10,9 @@ This is a fully responsive Pokédex web application built with React. It allows 
 
 - [Demo](#demo)
 - [Features](#features)
+- [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Technologies Used](#technologies-used)
 
 ## Demo
 

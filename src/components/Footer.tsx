@@ -10,7 +10,7 @@ const Footer = () => {
 				<div className="mx-auto text-lg">
 					View code on:{" "}
 					<a
-						className="hover:text-blue-500"
+						className="hover:text-orange-500"
 						href="https://github.com/danielrpytel/pokedex"
 					>
 						GitHub

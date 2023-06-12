@@ -48,7 +48,7 @@ function Search() {
 				</div>
 
 				<div className="mb-4 w-full md:my-auto md:ml-10 md:w-1/2">
-					<div className="mx-auto w-3/6 rounded-lg bg-green-600 p-3 md:w-4/6">
+					<div className="mx-auto w-4/5 rounded-lg bg-green-600 p-3">
 						<p className="text-xl text-slate-200">
 							Search for a Pokémon by name or using its National Pokédex number.
 						</p>

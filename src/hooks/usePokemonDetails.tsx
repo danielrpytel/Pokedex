@@ -32,6 +32,7 @@ export const usePokemonDetails = () => {
 			await fetchPokemonSpecies(pokemonData);
 		} catch (error) {
 			setErrorMsg("Could not find that Pokemon");
+			setLoading(false);
 		}
 	};
 

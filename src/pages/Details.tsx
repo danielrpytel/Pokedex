@@ -75,13 +75,16 @@ const Details = () => {
 		type: pokemonDetails?.types,
 	};
 
+	if (errorMsg.length !== 0) {
+		return (
+			<div className="h-screen w-full py-5 text-center">
+				<p className="text-3xl text-red-500">{errorMsg}</p>
+			</div>
+		);
+	}
+
 	return (
 		<>
-			{errorMsg.length !== 0 && (
-				<div className="w-full text-center">
-					<p className="text-3xl text-red-500">{errorMsg}</p>
-				</div>
-			)}
 			{loading ? (
 				<Loading />
 			) : (
